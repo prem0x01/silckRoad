@@ -5,7 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/go-chi/chi/v5"
+	//"github.com/go-chi/chi/v5"
+	"github.com/prem0x01/silckRoad/handlers"
 )
 
 const LISTEN_ON = ":8032"
@@ -16,9 +17,8 @@ func handlerIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	r := chi.NewRouter()
+	r := handlers.Router()
 
-	r.Get("/", handlerIndex)
 	log.Printf("Listening on %s", LISTEN_ON)
 	http.ListenAndServe(LISTEN_ON, r)
 }
